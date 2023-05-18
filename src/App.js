@@ -32,7 +32,8 @@ function App() {
   }; 
  
   function resetResult(e) { 
-  
+   e.preventDefault();
+   setResult((result) => result = 0);
   }; 
  
   return ( 
@@ -42,7 +43,7 @@ function App() {
       </div> 
       <form> 
         <p ref={resultRef}> 
-           
+           {result}
         </p> 
         <input
           pattern="[0-9]" 
@@ -50,12 +51,12 @@ function App() {
           type="number" 
           placeholder="Type a number" 
         /> 
-        <button onClick={plus}>Add</button> 
-        <button>Substract</button> 
-        <button>Mulitply</button>
-        <button>Divide</button>
-        <button onClick={resetInput}>Reset Input</button> 
-        <button>Reset Result</button>
+        <button onClick={plus}>Add (+)</button> 
+        <button onClick={minus}>Substract (-)</button> 
+        <button onClick={times}>Mulitply (*)</button>
+        <button onClick={divide}>Divide (/)</button>
+        <button onClick={resetInput}>Reset Input (0)</button> 
+        <button onClick={resetResult}>Reset Result  (0)</button>
       </form> 
     </div> 
   ); 
